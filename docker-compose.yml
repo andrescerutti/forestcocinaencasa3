@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cocinaencasa_3
+    environment:
+      - APPLICATION_PORT=3310
+      - DATABASE_URL=postgres://miybplwbbxzlqk:d1e2f70bb309f91f1ba2a3fe0e45d42a3db287433b9c346ccd5b13d653231e8e@ec2-34-225-82-212.compute-1.amazonaws.com:5432/d46mseap186jlh
+      - DATABASE_SCHEMA=public
+      - DATABASE_SSL=true
+      - FOREST_AUTH_SECRET=ad2e438ef64fee0076a0aa59a92894cd9c7a5f5afb9113b787e9e34adb181244be5921858012c21fbda354faf6fd82d8
+      - FOREST_ENV_SECRET=ced383195e85fc5971588c50b9f2829bd3c0ec4e9ab4147eed578cd816ee6d6a
+    ports:
+      - "3310:3310"
+    volumes:
+      - ./:/usr/src/app
